@@ -5,7 +5,7 @@ kshared="/run/kata-containers/shared/sandboxes"
 mkdir -p ${vmdir}/${container}
 mkdir -p ${kshared}/${container}
 
-vimg="/shared/vm-images/kata.qcow2"
+vimg="/home/ubuntu/directVisor/new_ubuntu1604.qcow2"
 vmem="/mnt/hugetlb/memory"
 
 cpumap="map.txt"
@@ -36,8 +36,8 @@ qemu-system-x86_64 \
         -hda ${vimg} \
         -pidfile ${vmdir}/${container}/pid \
         -object memory-backend-file,id=mem0,size=1024M,mem-path=${vmem},share=on \
-        -numa node,nodeid=0,cpus=0-1,memdev=mem0 \
+        -numa node,nodeid=0,cpus=0-19,memdev=mem0 \
         -serial telnet:127.0.0.1:7000,server,nowait \
         -monitor telnet:127.0.0.1:8000,server,nowait \
         -osnet_cpumap path=${cpumap} \
-        -smp 2,cores=1,threads=1,sockets=2,maxcpus=2
+        -smp 1,cores=1,threads=1,sockets=20,maxcpus=20

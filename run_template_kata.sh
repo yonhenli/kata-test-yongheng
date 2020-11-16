@@ -1,7 +1,7 @@
-repo="/mnt/oci"
-idx=1
+repo="/home/ubuntu/cocotion/vmcontainer/oci"
+idx=0
 container="redis-${idx}"
-vdisk="hda,/shared/vm-images/kata.qcow2"
+vdisk="hda,/home/ubuntu/directVisor/snap.qcow2"
 #vdisk="hda,vm.qcow2"
 #vdisk="para,snap.qcow2"
 cpumap="map.txt"
